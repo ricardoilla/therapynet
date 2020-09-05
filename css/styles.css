@@ -47,6 +47,11 @@
   box-sizing: border-box;
 }
 
+video {
+  height: auto;
+  width: 100%;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -275,6 +280,14 @@ button,
 [type=submit] {
   -webkit-appearance: button;
 }
+
+
+.canvasbox {
+  width: 100%;
+  height: 20%;
+  margin-top: 50px;
+}
+
 
 button:not(:disabled),
 [type=button]:not(:disabled),

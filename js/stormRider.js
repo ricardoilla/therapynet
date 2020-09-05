@@ -1,5 +1,5 @@
 var cvs = document.getElementById('responsive-canvas');
-var heightRatio = 1;
+var heightRatio = 1.1;
 cvs.height = cvs.width * heightRatio;
 var ctx = cvs.getContext('2d');
 
@@ -91,11 +91,28 @@ function play_F(file){
   }
 
 
+
+
+function calculatePosition(){
+    let velocity = sessionStorage.getItem("Velocity");
+    let acceleration = sessionStorage.getItem("Acceleration");
+    console.log('Variaton:', velocity/5000 + acceleration/500)
+    plane_x = plane_x + 4*(velocity/5000 + acceleration/500);
+    if (plane_x > cvs.width){
+        plane_x=0;
+    }
+    else if (plane_x < 0){
+        plane_x = cvs.width
+    }
+} 
+
+
 function draw(){
     document.getElementById("score").innerHTML = score;
     document.getElementById("lives").innerHTML = lives;
     ctx.drawImage(bg, 0, 0, cvs.width, cvs.height);
     if (start){
+        calculatePosition();
         for(var i=0; i<storms.length; i++){
             if (storms[i].st != null)
             {
@@ -170,3 +187,5 @@ function draw(){
 }
 
 draw();
+
+

@@ -71,32 +71,41 @@
                                 <canvas id="responsive-canvas"></canvas>
                             </div>
                         </div>
-                        <div class="col col-lg-4">
-                            <div class="jumbotron jumbotron-fluid">
-                                <div class="container">
-                                  <h1 class="display-4">Storm Rider</h1>
-                                  <p class="lead">Collect the stars and be carefull with the storms!</p>
-                                </div>
-                              </div>
-                              <div class="jumbotron jumbotron-fluid">
+                        <div class="col col-lg-5">
+                                  <h1 class="display-4">Storm-Rider</h1>
                                   <div class="row">
                                         <div class="col">
                                             <div class="container">
-                                                <h1>Score:</h1>
-                                                <h1 id="score"></h1><script src="skyTrip.js"></script>
+                                                <h3>SCORE:</h3>
+                                                <h3 id="score"></h3><script src="js/stormRider.js"></script>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="container">
-                                                <h1>Lives:</h1>
-                                                <h1 id="lives"></h1><script src="skyTrip.js"></script>
+                                                <h3>LIVES:</h3>
+                                                <h3 id="lives"></h3><script src="js/stormRider.js"></script>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            <button type="button" class="btn btn-success btn-block" onclick="gameStart();">Start</button>
+
+                            <div id="updatenote" class="updatenote mt10"> loading ...</div>
+
+                            <button  id="trackbutton" class="btn btn-success btn-block" type="button" disabled onclick="gameStart();">
+                                Start
+                            </button>
+
+
+                            <canvas id="canvas" class="border canvasbox"></canvas>
+                            
+
                         </div>
 
+                    </div>
+                    <br><br><br><br><br><br>
+                    <div class="container"> 
+                        <div class="row">
+                                <video class="videobox canvasbox" autoplay="autoplay" id="myvideo"></video>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -196,6 +205,9 @@
         <footer class="bg-light py-5">
             <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
         </footer>
+        <!-- Handtracking JS-->
+        <script src="https://unpkg.com/carbon-components@latest/scripts/carbon-components.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
@@ -204,6 +216,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <script src="skyTrip.js"></script>
+        <script src="js/stormRider.js"></script>
+        <script src="js/handtrack.js"></script>
     </body>
 </html>
