@@ -2,6 +2,7 @@ var cvs = document.getElementById('responsive-canvas');
 var heightRatio = 1.1;
 cvs.height = cvs.width * heightRatio;
 var ctx = cvs.getContext('2d');
+ctx.imageSmoothingEnabled = false;
 
 
 
@@ -12,7 +13,7 @@ var storm1 = new Image();
 var storm2 = new Image();
 var star = new Image();
 
-plane.src = "images/plane.png";
+plane.src = "images/old_plane.png";
 bg.src = "images/bg.png";
 storm1.src = "images/storm1.png";
 storm2.src = "images/storm2.png";
@@ -34,13 +35,14 @@ var score = 0;
 var plane_x = cvs.width/2;
 var plane_y = 2*cvs.height/3;
 var plane_width = cvs.width/9;
-var plane_height = cvs.width/9;
+var plane_height = cvs.height/9;
 var shape;
 var k = 1;
 var lives = 3;
 var storms = [];
 var limit = Math.floor(cvs.height/(2*k))*k;
 var start = false;
+var sound_flag = true;
 
 storms[0] = {
     x: cvs.width/2,
@@ -110,8 +112,16 @@ function calculatePosition(){
 function draw(){
     document.getElementById("score").innerHTML = score;
     document.getElementById("lives").innerHTML = lives;
-    ctx.drawImage(bg, 0, 0, cvs.width, cvs.height);
+    //ctx.drawImage(bg, 0, 0, cvs.width, cvs.height);
+    ctx.beginPath();
+    ctx.rect(0, 0, cvs.width, cvs.height);
+    ctx.fillStyle = "#333638";
+    ctx.fill();
     if (start){
+        if(sound_flag){
+            play_F(plane_src);
+            sound_flag=false;
+        }
         calculatePosition();
         for(var i=0; i<storms.length; i++){
             if (storms[i].st != null)

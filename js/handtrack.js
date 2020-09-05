@@ -21,7 +21,7 @@ var pauseGameAnimationDuration = 500;
 
 
 // TestBed Details
-windowHeight = $(document).height()
+windowHeight = 600;//$(document).height()
 windowWidth = document.body.clientWidth
 var scale_factor = 10
 var SPACE_WIDTH = windowWidth / scale_factor;
@@ -32,12 +32,12 @@ worldXRange = [-(SPACE_WIDTH / 2), SPACE_WIDTH / 2]
 // video.width = 500
 // video.height = 400
 
-$(".pauseoverlay").show()
+/* $(".pauseoverlay").show()
 // $(".overlaycenter").text("Game Paused")
 $(".overlaycenter").animate({
     opacity: 1,
     fontSize: "4vw"
-}, pauseGameAnimationDuration, function () {});
+}, pauseGameAnimationDuration, function () {}); */
 
 const modelParams = {
     flipHorizontal: true, // flip e.g for video  
